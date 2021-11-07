@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Appointment;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\App;
 
 class AppointmentController extends Controller
 {
@@ -51,18 +52,27 @@ class AppointmentController extends Controller
         // Validate the request...
         $request->validate([
             'type_appointment'  => 'required',
-            'date'              => 'required|date',
+            'date'              => 'required|date|after:today',
         ]);
 
-        // Create and save the data...
-        $data = Appointment::create([
-            'type_appointment'  => $request->type_appointment,
-            'date_appointment'  => $request->date,
-            'patient_id'        => auth()->user()->id,
-        ]);
+        if(Appointment::where('patient_id', auth()->user()->id)->where('ailment', $request->type_appointment)->where('date_sched', $request->date)->doesntExist()){
+            // Create and save the data...
+            $data = Appointment::create([
+                'ailment'       => $request->type_appointment,
+                'date_sched'    => $request->date,
+                'patient_id'    => auth()->user()->id,
+            ]);
 
-        // Redirect...
-        return redirect()->route('appointmentappointment.history')->with('success', 'Appointment created successfully.');
+            // Redirect...
+            return redirect()->route('appointmentappointment.history')->with('success', 'Appointment created successfully.');
+        }
+
+        if(Appointment::where('patient_id', auth()->user()->id)->where('ailment', $request->type_appointment)->where('date_sched', $request->date)->exists()){
+
+            // Redirect...
+            return redirect()->route('register.appointment.create');
+        }
+
 
     }
 
