@@ -4,12 +4,10 @@
 <div class="container">
     <h1>Register Appointment</h1>
     <hr>
-    {!! Form::open(['route' => 'register.appointment.store', 'method' => 'POST', 'enctype' => 'multipart/form-data'])
-    !!}
+    {!! Form::open(['route' => 'register.appointment.store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
     <div class="form-group">
-        <label for="exampleFormControlSelect1">Type of Appointment</label>
-        <select name="type_appointment" class="form-control @error('type_appointment') is-invalid @enderror"
-            id="exampleFormControlSelect1">
+        <label>Type of Appointment</label>
+        <select name="type_appointment" class="form-control @error('type_appointment') is-invalid @enderror" id="exampleFormControlSelect1">
             <option value="">Select Appointment</option>
             <option value="A">A</option>
             <option value="B">B</option>
@@ -23,17 +21,14 @@
         @enderror
     </div>
     <div class="form-group">
-        <input type="date" name="date" class="form-control @error('date') is-invalid @enderror" name="" id="">
-        @error('date')
-        <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-        </span>
-        @enderror
+        <label>Date</label>
+        <input type="date" name="date" id="" class="form-control @error('date') is-invalid @enderror">
     </div>
-
-
-
-    {!! Form::submit('Create', ['class'=>'btn btn-primary']) !!}
+    @error('date')
+    <span class="invalid-feedback" role="alert">
+        <strong>{{$message}}</strong>
+    </span>
+    @enderror
     {!! Form::close() !!}
 </div>
 @endsection

@@ -1,96 +1,216 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/f14a10e293.js" crossorigin="anonymous"></script>
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- Basic Page Needs
+================================================== -->
+    <meta charset="utf-8">
+    <title>{{ config('app.name', 'Laravel') }}</title>
+
+    <!-- Mobile Specific Metas
+================================================== -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Construction Html5 Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon
+================================================== -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <!-- CSS
+================================================== -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="plugins/fontawesome/css/all.min.css">
+    <!-- Animation -->
+    <link rel="stylesheet" href="plugins/animate-css/animate.css">
+    <!-- slick Carousel -->
+    <link rel="stylesheet" href="plugins/slick/slick.css">
+    <link rel="stylesheet" href="plugins/slick/slick-theme.css">
+    <!-- Colorbox -->
+    <link rel="stylesheet" href="plugins/colorbox/colorbox.css">
+    <!-- Template styles-->
+    <link rel="stylesheet" href="css/style.css">
 
 </head>
+
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+    <div class="body-inner">
+        <!--/ Topbar end -->
+            <!-- Header start -->
+        <header id="header" class="header-two">
+            <div class="site-navigation">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <nav class="navbar navbar-expand-lg navbar-light p-0">
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    @auth
-                         <!-- Left Side Of Navbar -->
-                         <ul class="navbar-nav mr-auto">
-                             <li class="nav-item {{ Request::is('home') ? 'active' : ''}}">
-                                 <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
-                             </li>
-                             <li class="nav-item {{ Request::is('appointment') ? 'active' : ''}}">
-                                 <a class="nav-link" href="/appointment">Appointment <span class="sr-only">(current)</span></a>
-                             </li>
-                             <li class="nav-item {{ Request::is('register-appointment') ? 'active' : ''}}">
-                                 <a class="nav-link" href="/register-appointment">Register Appointment <span class="sr-only">(current)</span></a>
-                             </li>
-                         </ul>
-                    @endauth
-
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                <div class="logo">
+                                    <a class="d-block" href="index-2.html">
+                                        <img loading="lazy" src="images/logo.png" alt="Constra">
                                     </a>
+                                </div><!-- logo end -->
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
+                                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                    data-target=".navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false"
+                                    aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+
+                                <div id="navbar-collapse" class="collapse navbar-collapse">
+
+                                    @guest
+                                        <ul class="nav navbar-nav ml-auto align-items-center">
+                                            <li><a href="index.html">Home</a></li>
+
+                                            <li class="nav-item dropdown">
+                                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Company
+                                                    <i class="fa fa-angle-down"></i></a>
+                                                <ul class="dropdown-menu" role="menu">
+                                                    <li><a href="team.html">Our People</a></li>
+                                                    <li><a href="testimonials.html">Testimonials</a></li>
+                                                    <li><a href="faq.html">Faq</a></li>
+                                                    <li><a href="pricing.html">Pricing</a></li>
+                                                </ul>
+                                            </li>
+
+                                            <li><a href="about.html">About Us</a></li>
+
+                                            <li class="nav-item dropdown">
+                                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Services
+                                                    <i class="fa fa-angle-down"></i></a>
+                                                <ul class="dropdown-menu" role="menu">
+                                                    <li><a href="service-single.html">Services Single</a></li>
+                                                </ul>
+                                            </li>
+
+                                            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+
+                                             <!-- Authentication Links -->
+                                            @guest
+                                                @if (Route::has('login'))
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                                    </li>
+                                                @endif
+
+                                                @if (Route::has('register'))
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                                    </li>
+                                                @endif
+
+                                            @else
+                                                <li class="nav-item dropdown">
+                                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#"
+                                                        role="button" data-toggle="dropdown" aria-haspopup="true"
+                                                        aria-expanded="false" v-pre>
+                                                        {{ Auth::user()->name }}
+                                                    </a>
+
+                                                    <div class="dropdown-menu dropdown-menu-right"
+                                                        aria-labelledby="navbarDropdown">
+                                                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                            document.getElementById('logout-form').submit();">
+                                                            {{ __('Logout') }}
+                                                        </a>
+
+                                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                            class="d-none">
+                                                            @csrf
+                                                        </form>
+                                                    </div>
+                                                </li>
+                                            @endguest
+                                        </ul>
+                                    @else
+                                    <!-- Left Side Of Navbar -->
+                                    <ul class="nav navbar-nav ml-auto align-items-center">
+                                        <li class="nav-item {{ Request::is('home') ? 'active' : ''}}">
+                                            <a class="nav-link" href="/home">Home <span
+                                                    class="sr-only">(current)</span></a>
+                                        </li>
+                                        <li class="nav-item {{ Request::is('appointment') ? 'active' : ''}}">
+                                            <a class="nav-link" href="/appointment">Appointment <span
+                                                    class="sr-only">(current)</span></a>
+                                        </li>
+                                        <li class="nav-item {{ Request::is('register-appointment') ? 'active' : ''}}">
+                                            <a class="nav-link" href="/register-appointment">Register Appointment <span
+                                                    class="sr-only">(current)</span></a>
+                                        </li>
+                                        <li class="nav-item dropdown">
+                                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#"
+                                                role="button" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false" v-pre>
+                                                {{ Auth::user()->name }}
+                                            </a>
+
+                                            <div class="dropdown-menu dropdown-menu-right"
+                                                aria-labelledby="navbarDropdown">
+                                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                                    {{ __('Logout') }}
+                                                </a>
+
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                    class="d-none">
+                                                    @csrf
+                                                </form>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    @endguest
                                 </div>
-                            </li>
-                        @endguest
-                    </ul>
+                            </nav>
+                        </div>
+                        <!--/ Col end -->
+                    </div>
+                    <!--/ Row end -->
                 </div>
+                <!--/ Container end -->
+
             </div>
-        </nav>
+            <!--/ Navigation end -->
+        </header>
+        <!--/ Header end -->
 
         <main class="py-4">
             @yield('content')
         </main>
-    </div>
-    @include('sweetalert::alert')
-</body>
-</html>
+        @include('sweetalert::alert')
+  <!-- Javascript Files
+  ================================================== -->
+
+  <!-- initialize jQuery Library -->
+  <script src="plugins/jQuery/jquery.min.js"></script>
+  <!-- Bootstrap jQuery -->
+  <script src="plugins/bootstrap/bootstrap.min.js" defer></script>
+  <!-- Slick Carousel -->
+  <script src="plugins/slick/slick.min.js"></script>
+  <script src="plugins/slick/slick-animation.min.js"></script>
+  <!-- Color box -->
+  <script src="plugins/colorbox/jquery.colorbox.js"></script>
+  <!-- shuffle -->
+  <script src="plugins/shuffle/shuffle.min.js" defer></script>
+
+
+  <!-- Google Map API Key-->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU" defer></script>
+  <!-- Google Map Plugin-->
+  <script src="plugins/google-map/map.js" defer></script>
+
+  <!-- Template custom -->
+  <script src="js/script.js"></script>
+
+  </div><!-- Body inner end -->
+  </body>
+
+  </html>

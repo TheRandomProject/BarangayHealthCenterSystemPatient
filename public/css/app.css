@@ -10002,3 +10002,18 @@ h3 {
     border-color: #dee2e6;
   }
 }
+#wizard {
+  top: 20px;
+  position: relative;
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+
+#wzd-content {
+  font-size: 20px;
+}
+
+.btn-wzd {
+  font-size: 2em;
+  color: #000;
+}
