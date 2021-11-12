@@ -9,10 +9,11 @@
         <label>Type of Appointment</label>
         <select name="type_appointment" class="form-control @error('type_appointment') is-invalid @enderror" id="exampleFormControlSelect1">
             <option value="">Select Appointment</option>
-            <option value="A">A</option>
-            <option value="B">B</option>
-            <option value="C">C</option>
-            <option value="D">D</option>
+            <option value="Animal Bite Treatment Center">Animal Bite Treatment Center</option>
+            <option value="National TB Program">National TB Program</option>
+            <option value="Family Planning">Family Planning</option>
+            <option value="Prenatal Check Up">Prenatal Check Up</option>
+            <option value="Medical Consultation">Medical Consultation</option>
         </select>
         @error('type_appointment')
         <span class="invalid-feedback" role="alert">
@@ -29,6 +30,11 @@
         <strong>{{$message}}</strong>
     </span>
     @enderror
+    <div class="float-right">
+        {!! Form::submit('Create Appointment', ['class'=>'btn btn-primary btn-sm']) !!}
+    </div>
     {!! Form::close() !!}
 </div>
+@include('sweetalert::alert')
+
 @endsection

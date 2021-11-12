@@ -6,6 +6,7 @@ use App\Models\Appointment;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
+Use Alert;
 
 class AppointmentController extends Controller
 {
@@ -55,6 +56,17 @@ class AppointmentController extends Controller
             'date'              => 'required|date|after:today',
         ]);
 
+        //counted the number of appointments
+        $count = Appointment::where('date', $request->date)->count();
+
+        //check if the date is available
+        if($count >= 10){
+
+            Alert::error('The date is not available', 'Error');
+            // Redirect...
+            return redirect()->back();
+        }
+
         if(Appointment::where('patient_id', auth()->user()->id)->where('ailment', $request->type_appointment)->where('date_sched', $request->date)->doesntExist()){
             // Create and save the data...
             $data = Appointment::create([
@@ -69,8 +81,9 @@ class AppointmentController extends Controller
 
         if(Appointment::where('patient_id', auth()->user()->id)->where('ailment', $request->type_appointment)->where('date_sched', $request->date)->exists()){
 
+            Alert::error('Already Register Appointment', 'You have Register This Appointment');
             // Redirect...
-            return redirect()->route('register.appointment.create');
+            return redirect()->back()->with('error', 'Error during the creation!');;
         }
 
 
