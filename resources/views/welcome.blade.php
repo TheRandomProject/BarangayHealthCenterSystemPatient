@@ -46,7 +46,7 @@
               <nav class="navbar navbar-expand-lg navbar-light p-0">
 
                 <div class="logo">
-                    <a class="d-block" href="index-2.html">
+                    <a class="d-block" href="/">
                       <img loading="lazy" src="images/logo.png" alt="Constra">
                     </a>
                 </div><!-- logo end -->
@@ -57,28 +57,34 @@
 
                 <div id="navbar-collapse" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav ml-auto align-items-center">
-                    <li><a href="index.html">Home</a></li>
-
-                      <li class="nav-item dropdown">
-                          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Company <i class="fa fa-angle-down"></i></a>
-                          <ul class="dropdown-menu" role="menu">
-                            <li><a href="team.html">Our People</a></li>
-                            <li><a href="testimonials.html">Testimonials</a></li>
-                            <li><a href="faq.html">Faq</a></li>
-                            <li><a href="pricing.html">Pricing</a></li>
-                          </ul>
-                      </li>
-
-                      <li><a href="about.html">About Us</a></li>
 
                       <li class="nav-item dropdown">
                           <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Services <i class="fa fa-angle-down"></i></a>
                           <ul class="dropdown-menu" role="menu">
-                            <li><a href="service-single.html">Services Single</a></li>
+                            <li><a href="service-single.html">Dental</a></li>
+                            <li><a href="service-single.html">Prenatal</a></li>
+                            <li><a href="service-single.html">Outreach Programs</a></li>
+                            <li><a href="service-single.html">Counseling</a></li>
                           </ul>
                       </li>
 
+                      <li class="nav-item"><a href="about.html">FAQ</a></li>
+
                       <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+
+                      <li class="nav-item"><a href="about.html">About Us</a></li>
+
+                      @auth
+                        <li class="nav-item {{ Request::is('appointment') ? 'active' : ''}}">
+                            <a class="nav-link" href="/appointment">Appointment <span
+                                    class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item {{ Request::is('register-appointment') ? 'active' : ''}}">
+                            <a class="nav-link" href="/register-appointment">Register Appointment <span
+                                    class="sr-only">(current)</span></a>
+                        </li>
+                      @endauth
+
                         <!-- Authentication Links -->
                         @guest
                         @if (Route::has('login'))
@@ -372,13 +378,7 @@
               labore et dolore magna aliqua.</p>
             <div class="footer-social">
               <ul>
-                <li><a href="https://facebook.com/themefisher" aria-label="Facebook"><i
-                      class="fab fa-facebook-f"></i></a></li>
-                <li><a href="https://twitter.com/themefisher" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                </li>
-                <li><a href="https://instagram.com/themefisher" aria-label="Instagram"><i
-                      class="fab fa-instagram"></i></a></li>
-                <li><a href="https://github.com/themefisher" aria-label="Github"><i class="fab fa-github"></i></a></li>
+                <li><a href="https://www.facebook.com/NGCTHQ/" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
               </ul>
             </div><!-- Footer social end -->
           </div><!-- Col end -->
@@ -397,11 +397,10 @@
           <div class="col-lg-3 col-md-6 mt-5 mt-lg-0 footer-widget">
             <h3 class="widget-title">Services</h3>
             <ul class="list-arrow">
-              <li><a href="service-single.html">Pre-Construction</a></li>
-              <li><a href="service-single.html">General Contracting</a></li>
-              <li><a href="service-single.html">Construction Management</a></li>
-              <li><a href="service-single.html">Design and Build</a></li>
-              <li><a href="service-single.html">Self-Perform Construction</a></li>
+              <li><a href="service-single.html">Dental</a></li>
+              <li><a href="service-single.html">Prenatal</a></li>
+              <li><a href="service-single.html">Outreach Programs</a></li>
+              <li><a href="service-single.html">Counseling</a></li>
             </ul>
           </div><!-- Col end -->
         </div><!-- Row end -->

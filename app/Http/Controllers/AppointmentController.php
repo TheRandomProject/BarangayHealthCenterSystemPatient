@@ -57,10 +57,10 @@ class AppointmentController extends Controller
         ]);
 
         //counted the number of appointments
-        $count = Appointment::where('date', $request->date)->count();
+        $count = Appointment::where('date_sched', $request->date)->count();
 
         //check if the date is available
-        if($count >= 10){
+        if($count >= 100){
 
             Alert::error('The date is not available', 'Error');
             // Redirect...

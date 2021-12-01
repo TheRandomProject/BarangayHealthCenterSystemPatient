@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h1>Register Appointment</h1>
+    <h1>Dental Appointment</h1>
     <hr>
     {!! Form::open(['route' => 'register.appointment.store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
     <div class="form-group">
