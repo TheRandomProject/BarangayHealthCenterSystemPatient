@@ -34,3 +34,7 @@ Route::get('/appointment', 'AppointmentController@index')->name('appointment')->
 */
 Route::get('/register-appointment', 'AppointmentController@create')->name('register.appointment.create');
 Route::post('/register-appointment', 'AppointmentController@store')->name('register.appointment.store');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
