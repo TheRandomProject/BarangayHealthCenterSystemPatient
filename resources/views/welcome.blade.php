@@ -358,7 +358,7 @@
 </section>
 <!--/ News end -->
 
-  <footer id="footer" class="footer bg-overlay">
+  {{-- <footer id="footer" class="footer bg-overlay">
     <div class="footer-main">
       <div class="container">
         <div class="row justify-content-between">
@@ -397,7 +397,7 @@
         </div><!-- Row end -->
       </div><!-- Container end -->
     </div><!-- Footer main end -->
-  </footer><!-- Footer end -->
+  </footer><!-- Footer end --> --}}
 
 
   <!-- Javascript Files
