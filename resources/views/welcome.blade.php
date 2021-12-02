@@ -61,10 +61,10 @@
                       <li class="nav-item dropdown">
                           <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Services <i class="fa fa-angle-down"></i></a>
                           <ul class="dropdown-menu" role="menu">
-                            <li><a href="service-single.html">Dental</a></li>
-                            <li><a href="service-single.html">Prenatal</a></li>
-                            <li><a href="service-single.html">Outreach Programs</a></li>
-                            <li><a href="service-single.html">Counseling</a></li>
+                            <li><a href="/register/dental">Dental</a></li>
+                            <li><a href="/register/prenatal">Prenatal</a></li>
+                            <li><a href="/register/outreach-programs">Outreach Programs</a></li>
+                            <li><a href="/register/counseling">Counseling</a></li>
                           </ul>
                       </li>
 
@@ -73,17 +73,6 @@
                       <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
 
                       <li class="nav-item"><a href="about.html">About Us</a></li>
-
-                      @auth
-                        <li class="nav-item {{ Request::is('appointment') ? 'active' : ''}}">
-                            <a class="nav-link" href="/appointment">Appointment <span
-                                    class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item {{ Request::is('register-appointment') ? 'active' : ''}}">
-                            <a class="nav-link" href="/register-appointment">Register Appointment <span
-                                    class="sr-only">(current)</span></a>
-                        </li>
-                      @endauth
 
                         <!-- Authentication Links -->
                         @guest
@@ -109,6 +98,8 @@
 
                             <div class="dropdown-menu dropdown-menu-right"
                                 aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/appointment">Appointment <span
+                                    class="sr-only">(current)</span></a>
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}

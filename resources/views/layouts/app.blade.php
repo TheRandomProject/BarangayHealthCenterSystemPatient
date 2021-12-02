@@ -7,7 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('/js/app.js') }}" defer></script>
 
     <!-- Basic Page Needs
 ================================================== -->
@@ -22,23 +22,23 @@
 
     <!-- Favicon
 ================================================== -->
-    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="icon" type="image/png" href="/images/favicon.png">
 
     <!-- CSS
 ================================================== -->
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/plugins/bootstrap/bootstrap.min.css">
     <!-- FontAwesome -->
-    <link rel="stylesheet" href="plugins/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="/plugins/fontawesome/css/all.min.css">
     <!-- Animation -->
-    <link rel="stylesheet" href="plugins/animate-css/animate.css">
+    <link rel="stylesheet" href="/plugins/animate-css/animate.css">
     <!-- slick Carousel -->
-    <link rel="stylesheet" href="plugins/slick/slick.css">
-    <link rel="stylesheet" href="plugins/slick/slick-theme.css">
+    <link rel="stylesheet" href="/plugins/slick/slick.css">
+    <link rel="stylesheet" href="/plugins/slick/slick-theme.css">
     <!-- Colorbox -->
-    <link rel="stylesheet" href="plugins/colorbox/colorbox.css">
+    <link rel="stylesheet" href="/plugins/colorbox/colorbox.css">
     <!-- Template styles-->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 
 </head>
 
@@ -55,7 +55,7 @@
 
                                 <div class="logo">
                                     <a class="d-block" href="/">
-                                        <img loading="lazy" src="images/logo.png" alt="Constra">
+                                        <img loading="lazy" src="/images/logo.png" alt="Constra">
                                     </a>
                                 </div><!-- logo end -->
 
@@ -67,24 +67,22 @@
 
                                 <div id="navbar-collapse" class="collapse navbar-collapse">
                                     <ul class="nav navbar-nav ml-auto align-items-center">
-                                      <li><a href="about.html">About Us</a></li>
 
                                       <li class="nav-item dropdown">
                                           <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Services <i class="fa fa-angle-down"></i></a>
                                           <ul class="dropdown-menu" role="menu">
-                                            <li><a href="service-single.html">Services Single</a></li>
+                                            <li><a href="/register/dental">Dental</a></li>
+                                            <li><a href="/register/prenatal">Prenatal</a></li>
+                                            <li><a href="/register/outreach-programs">Outreach Programs</a></li>
+                                            <li><a href="/register/counseling">Counseling</a></li>
                                           </ul>
                                       </li>
 
+                                      <li class="nav-item"><a href="about.html">FAQ</a></li>
+
                                       <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
 
-                                      @auth
-
-                                        <li class="nav-item {{ Request::is('register-appointment') ? 'active' : ''}}">
-                                            <a class="nav-link" href="/register-appointment">Dental Appointment <span
-                                                    class="sr-only">(current)</span></a>
-                                        </li>
-                                      @endauth
+                                      <li class="nav-item"><a href="about.html">About Us</a></li>
 
                                         <!-- Authentication Links -->
                                         @guest
@@ -107,6 +105,7 @@
                                                 aria-expanded="false" v-pre>
                                                 {{ Auth::user()->name }}
                                             </a>
+
                                             <div class="dropdown-menu dropdown-menu-right"
                                                 aria-labelledby="navbarDropdown">
                                                 <a class="dropdown-item" href="/appointment">Appointment <span
@@ -149,25 +148,25 @@
   ================================================== -->
 
   <!-- initialize jQuery Library -->
-  <script src="plugins/jQuery/jquery.min.js"></script>
+  <script src="/plugins/jQuery/jquery.min.js"></script>
   <!-- Bootstrap jQuery -->
-  <script src="plugins/bootstrap/bootstrap.min.js" defer></script>
+  <script src="/plugins/bootstrap/bootstrap.min.js" defer></script>
   <!-- Slick Carousel -->
-  <script src="plugins/slick/slick.min.js"></script>
-  <script src="plugins/slick/slick-animation.min.js"></script>
+  <script src="/plugins/slick/slick.min.js"></script>
+  <script src="/plugins/slick/slick-animation.min.js"></script>
   <!-- Color box -->
-  <script src="plugins/colorbox/jquery.colorbox.js"></script>
+  <script src="/plugins/colorbox/jquery.colorbox.js"></script>
   <!-- shuffle -->
-  <script src="plugins/shuffle/shuffle.min.js" defer></script>
+  <script src="/plugins/shuffle/shuffle.min.js" defer></script>
 
 
   <!-- Google Map API Key-->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU" defer></script>
   <!-- Google Map Plugin-->
-  <script src="plugins/google-map/map.js" defer></script>
+  <script src="/plugins/google-map/map.js" defer></script>
 
   <!-- Template custom -->
-  <script src="js/script.js"></script>
+  <script src="/js/script.js"></script>
 
   </div><!-- Body inner end -->
   </body>

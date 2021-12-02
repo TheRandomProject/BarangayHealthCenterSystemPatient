@@ -36,10 +36,41 @@ class AppointmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function counseling()
     {
-        return view('page.register-appointment.index');
+        return view('page.type-appointment.counseling.index');
     }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function dental()
+    {
+        return view('page.type-appointment.dental.index');
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function outreachprogram()
+    {
+        return view('page.type-appointment.outreach-programs.index');
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function prenatal()
+    {
+        return view('page.type-appointment.prenatal.index');
+    }
+
 
     /**
      * Store a newly created resource in storage.

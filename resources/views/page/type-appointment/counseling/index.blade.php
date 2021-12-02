@@ -2,18 +2,16 @@
 
 @section('content')
 <div class="container">
-    <h1>Dental Appointment</h1>
+    <h1>Counseling Appointment</h1>
     <hr>
     {!! Form::open(['route' => 'register.appointment.store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
     <div class="form-group">
         <label>Type of Appointment</label>
         <select name="type_appointment" class="form-control @error('type_appointment') is-invalid @enderror" id="exampleFormControlSelect1">
             <option value="">Select Appointment</option>
-            <option value="Animal Bite Treatment Center">Animal Bite Treatment Center</option>
-            <option value="National TB Program">National TB Program</option>
-            <option value="Family Planning">Family Planning</option>
-            <option value="Prenatal Check Up">Prenatal Check Up</option>
-            <option value="Medical Consultation">Medical Consultation</option>
+            <option value="Prenatal Counseling">Prenatal Counseling</option>
+            <option value="HIV Counseling">HIV Counseling</option>
+            <option value="Drug Abuse Counseling">Drug Abuse Counseling</option>
         </select>
         @error('type_appointment')
         <span class="invalid-feedback" role="alert">

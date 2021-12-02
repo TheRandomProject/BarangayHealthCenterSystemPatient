@@ -32,9 +32,11 @@ Route::get('/appointment', 'AppointmentController@index')->name('appointment')->
 | Register Appointment
 |--------------------------------------------------------------------------
 */
-Route::get('/register-appointment', 'AppointmentController@create')->name('register.appointment.create');
+Route::get('/register/counseling', 'AppointmentController@counseling')->name('register.appointment.create');
+Route::get('/register/dental', 'AppointmentController@dental')->name('register.appointment.create');
+Route::get('/register/outreach-programs', 'AppointmentController@outreachprogram')->name('register.appointment.create');
+Route::get('/register/prenatal', 'AppointmentController@prenatal')->name('register.appointment.create');
 Route::post('/register-appointment', 'AppointmentController@store')->name('register.appointment.store');
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
