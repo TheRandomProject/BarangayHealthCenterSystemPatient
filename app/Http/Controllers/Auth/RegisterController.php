@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\Patient;
 use App\Providers\RouteServiceProvider;
-use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -60,8 +59,8 @@ class RegisterController extends Controller
             'last_name.max' => 'Your name must be less than 255 characters.',
             'birthday.required' => 'Please enter your Birthday.',
             'birthday.date' => 'Please enter a valid Birthday.',
-            'birthday.before' => 'You must be 19.',
-            'birthday.after' => 'You must be 11.',
+            'birthday.before' => 'You must be 11.',
+            'birthday.after' => 'You must be 19.',
             'mobile_number.required' => 'Please enter your Mobile Number.',
             'mobile_number.digits' => 'Your Mobile Number must be 10 digits.',
             'mobile_number.unique' => 'Your Mobile Number is already registered.',
