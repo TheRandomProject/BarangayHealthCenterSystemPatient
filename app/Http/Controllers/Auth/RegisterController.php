@@ -81,7 +81,7 @@ class RegisterController extends Controller
             'mobile_number'     => 'required|regex:/[0-9]{11}/',
             'birthday'          => ['required', 'date', 'before:'.Carbon::now()->subYears(11)->toDateString(), 'after:'.Carbon::now()->subYears(19)->toDateString()],
             'gender'            => ['required', 'string', 'max:255'],
-            'email'             => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email'             => ['required', 'string', 'email', 'max:255', 'unique:patients'],
             'password'          => ['required', 'string', 'min:8', 'confirmed'],
         ], $messages);
     }
