@@ -8,7 +8,7 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-
+use Carbon\Carbon;
 class RegisterController extends Controller
 {
     /*
@@ -49,15 +49,41 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        // custom validation messages
+        $messages = [
+            'first_name.required' => 'Please enter your Firstname.',
+            'first_name.min' => 'Your name must be at least 3 characters.',
+            'first_name.max' => 'Your name must be less than 255 characters.',
+            'last_name.required' => 'Please enter your Lastname.',
+            'last_name.min' => 'Your name must be at least 3 characters.',
+            'last_name.max' => 'Your name must be less than 255 characters.',
+            'birthday.required' => 'Please enter your Birthday.',
+            'birthday.date' => 'Please enter a valid Birthday.',
+            'birthday.before' => 'You must be 19.',
+            'birthday.after' => 'You must be 11.',
+            'mobile_number.required' => 'Please enter your Mobile Number.',
+            'mobile_number.digits' => 'Your Mobile Number must be 10 digits.',
+            'mobile_number.unique' => 'Your Mobile Number is already registered.',
+            'email.required' => 'Please enter your email address.',
+            'email.email' => 'Please enter a valid email address.',
+            'email.unique' => 'That email address is already registered.',
+            'password.required' => 'Please enter a password.',
+            'password.min' => 'Your password must be at least 6 characters.',
+            'password.max' => 'Your password must be less than 255 characters.',
+            'password_confirmation.required' => 'Please confirm your password.',
+            'password_confirmation.same' => 'Your passwords do not match.',
+        ];
+
+        // validation rules
         return Validator::make($data, [
             'first_name'        => ['required', 'string', 'max:255'],
             'last_name'         => ['required', 'string', 'max:255'],
             'mobile_number'     => 'required|regex:/[0-9]{11}/',
-            'birthday'          => ['required', 'string', 'max:255'],
+            'birthday'          => ['required', 'date', 'before:'.Carbon::now()->subYears(11)->toDateString(), 'after:'.Carbon::now()->subYears(19)->toDateString()],
             'gender'            => ['required', 'string', 'max:255'],
             'email'             => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password'          => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
+        ], $messages);
     }
 
     /**
