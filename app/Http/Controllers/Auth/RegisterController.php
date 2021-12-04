@@ -94,7 +94,24 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        // get the year of today with the format y
+        $year = date('y');
+
+        // find patient_id like 'PATIENT-%' and add 1
+        $patient_id = Patient::where('patient_id', 'like', 'PATIENT-'. $year . '%')->orderBy('patient_id', 'desc')->first();
+
+        // if patient_id is null, then add 1 to the first patient_id
+        if ($patient_id == null) {
+            $patient_id = 'PATIENT-'. $year . '-0001';
+        } else {
+            // if patient_id is not null, then add 1 to the last patient_id
+            $patient_id = $patient_id->patient_id;
+            $patient_id = substr($patient_id, -4);
+            $patient_id = 'PATIENT-'. $year . '-' . sprintf('%04d', $patient_id + 1);
+        }
+
         return Patient::create([
+            'patient_id'        => $patient_id,
             'first_name'        => $data['first_name'],
             'last_name'         => $data['last_name'],
             'mobile_number'     => $data['mobile_number'],
