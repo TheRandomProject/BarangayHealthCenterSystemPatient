@@ -78,7 +78,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'first_name'        => ['required', 'string', 'max:255'],
             'last_name'         => ['required', 'string', 'max:255'],
-            'mobile_number'     => 'required|regex:/[0-9]{11}/|max:11|unique:mobile_number',
+            'mobile_number'     => 'required|regex:/[0-9]{11}/|max:11|unique:patients',
             'birthday'          => ['required', 'date', 'before:'.Carbon::now()->subYears(11)->toDateString(), 'after:'.Carbon::now()->subYears(19)->toDateString()],
             'gender'            => ['required', 'string', 'max:255'],
             'email'             => ['required', 'string', 'email', 'max:255', 'unique:patients'],
