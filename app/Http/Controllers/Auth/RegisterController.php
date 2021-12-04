@@ -78,7 +78,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'first_name'        => ['required', 'string', 'max:255'],
             'last_name'         => ['required', 'string', 'max:255'],
-            'mobile_number'     => 'required|regex:/[0-9]{11}/',
+            'mobile_number'     => 'required|regex:/[0-9]{11}/|max:11|unique:mobile_number',
             'birthday'          => ['required', 'date', 'before:'.Carbon::now()->subYears(11)->toDateString(), 'after:'.Carbon::now()->subYears(19)->toDateString()],
             'gender'            => ['required', 'string', 'max:255'],
             'email'             => ['required', 'string', 'email', 'max:255', 'unique:patients'],
@@ -102,12 +102,12 @@ class RegisterController extends Controller
 
         // if patient_id is null, then add 1 to the first patient_id
         if ($patient_id == null) {
-            $patient_id = 'PATIENT-'. $year . '-0001';
+            $patient_id = 'PATIENT-'. $year . '0001';
         } else {
             // if patient_id is not null, then add 1 to the last patient_id
             $patient_id = $patient_id->patient_id;
             $patient_id = substr($patient_id, -4);
-            $patient_id = 'PATIENT-'. $year . '-' . sprintf('%04d', $patient_id + 1);
+            $patient_id = 'PATIENT-'. $year . sprintf('%04d', $patient_id + 1);
         }
 
         return Patient::create([
