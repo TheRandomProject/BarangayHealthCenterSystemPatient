@@ -16,7 +16,8 @@
         "laravelcollective/html": "^6.2",
         "maatwebsite/excel": "^3.1",
         "realrashid/sweet-alert": "^4.1",
-        "simplesoftwareio/simple-qrcode": "~4"
+        "simplesoftwareio/simple-qrcode": "~4",
+        "spatie/laravel-activitylog": "^3.17"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
