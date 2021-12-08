@@ -40,3 +40,5 @@ Route::post('/register-appointment', 'AppointmentController@store')->name('regis
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/patient-support', 'PatientSupportController@index');
