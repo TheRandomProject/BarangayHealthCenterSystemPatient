@@ -21,6 +21,19 @@
         @enderror
     </div>
     <div class="form-group">
+        <label>Type of Patient</label>
+        <select name="" class="form-control @error('') is-invalid @enderror" id="exampleFormControlSelect1">
+            <option value="">Select Appointment</option>
+            <option value="Normal">Normal</option>
+            <option value="PWD">PWD</option>
+        </select>
+        @error('')
+        <span class="invalid-feedback" role="alert">
+            <strong>{{$message}}</strong>
+        </span>
+        @enderror
+    </div>
+    <div class="form-group">
         <label>Date</label>
         <input type="date" name="date" id="" class="form-control @error('date') is-invalid @enderror">
     </div>
