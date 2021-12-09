@@ -14,28 +14,56 @@
                 <div class="col-md-4">
                     <div class="alert alert-primary" role="alert">
                         <a href="/register/dental">
-                            Dental
+                            Set An Appointment
                         </a>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="alert alert-primary" role="alert">
                         <a href="/register/prenatal">
-                            Prenatal
+                            Contact
                         </a>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="alert alert-primary" role="alert">
                         <a href="/register/outreach-programs">
-                            Outreach programs
+                            Description
                         </a>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="alert alert-primary" role="alert">
                         <a href="/register/counseling">
-                            Counseling
+                            Management
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="alert alert-primary" role="alert">
+                        <a href="/register/counseling">
+                            Offers
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="alert alert-primary" role="alert">
+                        <a href="/register/counseling">
+                            Tips and Advice
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="alert alert-primary" role="alert">
+                        <a href="/register/counseling">
+                            Updates
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="alert alert-primary" role="alert">
+                        <a href="/register/counseling">
+                            Security
                         </a>
                     </div>
                 </div>
